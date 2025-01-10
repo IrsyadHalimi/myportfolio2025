@@ -1,26 +1,33 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div :class="{'dark': isDarkMode}">
+    <NavbarSection />
+    <HeroSection />
+    <ProjectsSection />
+    <AboutSection />
+    <ContactSection />
+    <FooterSection />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NavbarSection from './components/NavbarSection.vue'
+import HeroSection from './components/HeroSection.vue'
+import ProjectsSection from './components/ProjectsSection.vue'
+import AboutSection from './components/AboutSection.vue'
+import ContactSection from './components/ContactSection.vue'
+import FooterSection from './components/FooterSection.vue'
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    NavbarSection,
+    HeroSection,
+    ProjectsSection,
+    AboutSection,
+    ContactSection,
+    FooterSection,
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
