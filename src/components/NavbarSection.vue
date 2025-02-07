@@ -18,7 +18,7 @@
       </button>
 
       <div class="flex shrink-0 items-center">
-        <img class="h-8 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+        <h5>Irsyad Halimi</h5>
       </div>
 
       <div class="hidden sm:block">
@@ -39,8 +39,8 @@
                     </span>
                 </label>
           <a href="#hero" class="nav-link" :class="{ active: currentSection === 'hero' }">Home</a>
-          <a href="#about" class="nav-link" :class="{ active: currentSection === 'about' }">About</a>
           <a href="#projects" class="nav-link" :class="{ active: currentSection === 'projects' }">Projects</a>
+          <a href="#about" class="nav-link" :class="{ active: currentSection === 'about' }">About</a>
           <a href="#contact" class="nav-link" :class="{ active: currentSection === 'contact' }">Contact</a>
         </div>
       </div>
@@ -48,9 +48,9 @@
 
     <div v-show="isMenuOpen" class="sm:hidden" id="mobile-menu">
       <div class="space-y-1 px-2 pb-3 pt-2">
-        <a href="#hero" class="block nav-link" @click="smoothScroll('hero')">Home</a>
-        <a href="#about" class="block nav-link" @click="smoothScroll('about')">About</a>
+        <a href="#hero" class="block nav-link text-black dark:text-white" @click="smoothScroll('hero')">Home</a>
         <a href="#projects" class="block nav-link" @click="smoothScroll('projects')">Projects</a>
+        <a href="#about" class="block nav-link" @click="smoothScroll('about')">About</a>
         <a href="#contact" class="block nav-link" @click="smoothScroll('contact')">Contact</a>
         <label class="inline-flex items-center cursor-pointer">
         <input type="checkbox" @click="toggleDarkMode" value="" class="sr-only peer">
@@ -106,7 +106,11 @@ export default {
         smoothScroll(sectionId) {
             const target = document.getElementById(sectionId);
             if (target) {
-                target.scrollIntoView({ behavior: "smooth", block: "start" });
+                const yOffset = target.offsetTop - (window.innerHeight - target.offsetHeight) / 2;
+                window.scrollTo({
+                    top: yOffset,
+                    behavior: "smooth"
+                });
             }
             this.isMenuOpen = false;
         },
@@ -122,7 +126,7 @@ export default {
         observeSections() {
             const options = {
                 root: null,
-                rootMargin: "-50% 0px -50% 0px",
+                rootMargin: "-50% 0px -80% 0px",
                 threshold: 0,
             };
 
