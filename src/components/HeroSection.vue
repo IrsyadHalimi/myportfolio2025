@@ -13,7 +13,6 @@
 </template>
 
 <script>
-let 
 </script>
 
 <style scoped>
